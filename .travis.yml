@@ -1,0 +1,5 @@
+bundler_args: --without integration
+script: bundle exec strainer test
+language: ruby
+rvm:
+  - 1.9.3
