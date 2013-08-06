@@ -1,4 +1,4 @@
 # Ssl Key Vault Attributes
 # ============================
 
-# default["ssl-key-vault"][...] = ...
+default['ssl_certificates'] = {}
