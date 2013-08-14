@@ -36,15 +36,14 @@ example_com_cert = <<EOF
 ...
 -----END CERTIFICATE-----
 EOF
-EOF
 
 default_attributes :ssl_certificates => {
   'example.com' => example_com_cert
 }
 ```
 
-   If you don't want to clutter your role definition, you can read the
-   certificate from file in the chef repo:
+If you don't want to clutter your role definition, you can read the
+certificate from file in the chef repo:
    
 ```ruby
 default_attributes :ssl_certificates => {
@@ -56,6 +55,27 @@ default_attributes :ssl_certificates => {
 
 The key will be stored in `/etc/ssl/private/key.name.key`, and
 certificate in `/etc/ssl/certs/key.name.pem`.
+
+### Multiple certificate files
+
+If you need to store certificate and chain separately, or store public
+part in multiple files for any other reason, the `ssl_certificates`
+entry can also be a dictionary, where key is extension of the file in
+`/etc/ssl/certs`, and value is the file's content.
+
+```ruby
+certificates = Pathname.new(__FILE__).dirname.join('../config/certificates')
+default_attributes :ssl_certificates => {
+  'example.com' => {
+    'crt' => certificates.join('example.com.crt').read,
+    'chain.pem' => certificates.join('example.com.chain.pem).read,
+  }
+}
+```
+
+In this example, files `/etc/ssl/certs/example.com.crt` and
+`/etc/ssl/certs/example.com.chain.pem` will be created.
+
 
 TODOs & questions
 -----------------

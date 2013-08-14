@@ -19,12 +19,16 @@ end
 
 vault = ChefVault.new('certs')
 
-node['ssl_certificates'].to_hash.each do |name, certificate|
-  file "/etc/ssl/certs/#{name}.pem" do
-    owner 'root'
-    group 'root'
-    mode '0644'
-    content certificate
+node['ssl_certificates'].to_hash.each do |name, certificates|
+  certificates = { 'pem' => certificates } unless certificates.is_a?(Hash)
+
+  certificates.each do |extension, certificate|
+    file "/etc/ssl/certs/#{name}.#{extension}" do
+      owner 'root'
+      group 'root'
+      mode '0644'
+      content certificate
+    end
   end
 
   file "/etc/ssl/private/#{name}.key" do
