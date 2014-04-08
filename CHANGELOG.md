@@ -1,6 +1,10 @@
 Change History
 ==============
 
+0.2.2
+-----
+ - Moved rake task to files/ to have it packaged
+
 0.2.1
 -----
  - Sample Rake snippet (NFY)
