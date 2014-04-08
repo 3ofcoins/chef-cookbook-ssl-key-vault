@@ -1,6 +1,14 @@
 Change History
 ==============
 
+0.2.1
+-----
+ - Sample Rake snippet (NFY)
+ 
+0.2.0
+-----
+ - Cleanups
+
 0.1.2
 -----
  - Support multiple certificate files (for separate CA path file)
