@@ -21,7 +21,12 @@ directory '/etc/ssl/private' do
 end
 
 node['ssl_certificates'].to_hash.each do |name, certificates|
-  item = ChefVault::Item.load('certs', "ssl-key-#{name.gsub(/[^a-z0-9]/, '_')}")
+  begin
+    item = ChefVault::Item.load('certs', "ssl-key-#{name.gsub(/[^a-z0-9]/, '_')}")
+  rescue ChefVault::Exceptions::KeysNotFound, ChefVault::Exceptions::SecretDecryption
+    node.save
+    raise
+  end
 
   certificates =
     case certificates

@@ -2,6 +2,8 @@ CERTIFICATE_DIR = 'config/certificates' unless defined? CERTIFICATE_DIR
 # CERTIFICATE_SUBJ = nil
 CERTIFICATE_JSON = FileList[File.join(CERTIFICATE_DIR, '*.key')].ext('json')
 
+autoload :JSON, 'json'
+
 rule '.json' => [ '.key', '.crt' ] do |t|
   basepath = File.join(File.dirname(t.name), File.basename(t.name, '.json'))
   inputs = Dir["#{basepath}.*"].reject { |path| path == t.name || path =~ /~$/ }
