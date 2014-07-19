@@ -22,7 +22,7 @@ end
 
 node['ssl_certificates'].to_hash.each do |name, certificates|
   begin
-    item = ChefVault::Item.load('certs', "ssl-key-#{name.gsub(/[^a-z0-9]/, '_')}")
+    item = chef_vault_item('certs', "ssl-key-#{name.gsub(/[^a-z0-9]/, '_')}")
   rescue ChefVault::Exceptions::KeysNotFound, ChefVault::Exceptions::SecretDecryption
     node.save
     raise
