@@ -17,6 +17,7 @@ Usage
 2. Store the private key in chef-vault. The name should be set to
    *ssl-key-key.name*.:
 
+    ```
     $ ruby -rjson -e 'puts JSON[Hash[Hash[*ARGV].map { |k,v| [k, File.read(v)] }]]' -- \
         chain.pem example.com.chain.pem \
         crt example.com.crt \
@@ -24,12 +25,13 @@ Usage
         key example.com.key \
         pem example.com.pem \
         > example.com.json
-
+    ```
+    ```
     $ knife encrypt create certs --mode client \
       --search 'QUERY' --admins '' \
       --name ssl-key-example_com \
       --json /path/to/example.com.json
-    
+    ```
    Either add Chef server's admin API users to the `--admins`, or make
    the key otherwise accessible to yourself in future (e.g. with
    [knife-briefcase](https://github.com/3ofcoins/knife-briefcase/)).
@@ -57,4 +59,4 @@ encrypted data bags, and such.
 Author
 ------
 
-Author:: Maciej Pasternacki <maciej@3ofcoins.net>
+Author: Maciej Pasternacki <maciej@3ofcoins.net>
