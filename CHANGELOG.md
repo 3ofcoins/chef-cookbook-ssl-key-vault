@@ -1,6 +1,11 @@
 Change History
 ==============
 
+0.2.4
+-----
+
+ - Merge #1 (@raoulwissink)
+
 0.2.3
 -----
  - Fix bugs
