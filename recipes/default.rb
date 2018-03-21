@@ -1,10 +1,6 @@
 # Ssl Key Vault
 # =============
 
-chef_gem 'chef-vault' do
-  version "~> 2.0.2"
-end
-
 require 'chef-vault'
 
 directory '/etc/ssl/certs' do

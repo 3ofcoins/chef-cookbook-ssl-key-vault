@@ -1,9 +1,12 @@
 Change History
 ==============
 
+0.3.0
+-----
+ - Drop `chef_gem`, use `gem` in metadata, require chef 12.8+
+
 0.2.4
 -----
-
  - Merge #1 (@raoulwissink)
 
 0.2.3
@@ -17,7 +20,7 @@ Change History
 0.2.1
 -----
  - Sample Rake snippet (NFY)
- 
+
 0.2.0
 -----
  - Cleanups
