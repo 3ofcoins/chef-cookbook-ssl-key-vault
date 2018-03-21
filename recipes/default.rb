@@ -3,8 +3,6 @@
 # Ssl Key Vault
 # =============
 
-require 'chef-vault'
-
 directory '/etc/ssl/certs' do
   recursive true
   owner 'root'

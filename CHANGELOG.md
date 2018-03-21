@@ -1,6 +1,11 @@
 Change History
 ==============
 
+0.3.1
+-----
+ - Fix #1 / 0.2.4 by depending on chef-vault cookbook which defines
+   the `chef_vault_item` helper
+
 0.3.0
 -----
  - Drop `chef_gem`, use `gem` in metadata, require chef 12.8+
