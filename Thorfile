@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # -*- ruby -*-
 
 require 'rubygems'
@@ -11,7 +13,7 @@ class Cookbook < Thor
 
   include Thor::Actions
 
-  desc :edit, "Edit cookbook in browser"
+  desc :edit, 'Edit cookbook in browser'
   def edit
     open "http://community.opscode.com/cookbooks/#{COOKBOOK_NAME}/edit"
   end
@@ -35,7 +37,7 @@ class Cookbook < Thor
   def open_cmd
     @open_cmd ||= %w[open xdg-open].find do |command|
       system "which #{command} >/dev/null 2>&1"
-      $?.success?
+      $CHILD_STATUS.success?
     end
   end
 end

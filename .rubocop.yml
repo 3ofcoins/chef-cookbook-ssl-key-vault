@@ -1,2 +1,13 @@
 AllCops:
   TargetRubyVersion: 2.3
+  Exclude:
+    - Thorfile
+
+Metrics/BlockLength:
+  Max: 200
+
+Style/ClassAndModuleChildren:
+  Enabled: false
+
+Style/MultilineMethodCallIndentation:
+  EnforcedStyle: indented_relative_to_receiver
